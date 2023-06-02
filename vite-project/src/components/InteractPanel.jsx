@@ -9,11 +9,17 @@ const InteractPanel = () => {
       <header>
         <img src={logo} alt="logo" />
       </header>
-      <section className="row">
-        <img src={svgDocument} alt="document" />
-        <img src={svgFolder} alt="folder" />
-        <img src={svgUpload} alt="upload" />
-      </section>
+      <ul className="lists">
+        <li>
+          <img src={svgDocument} alt="document" />
+        </li>
+        <li>
+          <img src={svgFolder} alt="folder" />
+        </li>
+        <li>
+          <img src={svgUpload} alt="upload" />
+        </li>
+      </ul>
     </div>
   );
 };

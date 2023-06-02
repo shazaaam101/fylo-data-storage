@@ -69,17 +69,31 @@ progress[value]::-webkit-progress-value {
     border-radius: 10px 5rem 10px 10px;
 }
 
-.InteractPanel .row {
+.InteractPanel .lists {
     margin-top: 2rem;
     display: flex;
     justify-content: flex-start;
     gap: 1rem;
+    list-style: none;
 }
 
-.InteractPanel .row > *{
-    padding: .75rem;
+.InteractPanel .lists > li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    aspect-ratio: 1;
     border-radius: 10px;
     background-color: var(--neutral-very-dark-blue);
+    cursor: pointer;
+}
+
+.InteractPanel .lists img{
+    transition: 0.125s ease-in-out;
+}
+
+.InteractPanel .lists > li:hover > img{
+    scale: 1.125;
 }
 
 .DataPanel {
