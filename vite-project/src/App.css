@@ -1,42 +1,151 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+:root {
+    --primary-fw: 700;
+    --primary-fs: 14px;
+    --secondary-fw: 400;
+    --primary-gradient-clr: hsl(6, 100%, 80%) , hsl(335, 100%, 65%);
+    --neutral-pale-blue: hsl(243, 100%, 93%);
+    --neutral-grayish-blue: hsl(229, 7%, 55%);
+    --neutral-dark-blue: hsl(228, 56%, 26%);
+    --neutral-very-dark-blue: hsl(229, 57%, 11%);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+progress {
+    margin-top: 1rem;
+    border-radius: 7px; 
+    width: 100%;
+    height: 20px;
 }
 
-.card {
-  padding: 2em;
+progress::-webkit-progress-bar {
+    background-color: var(--neutral-very-dark-blue);
+    border: 3px solid var(--neutral-very-dark-blue);
+    border-radius: 10px;
+}
+progress[value]::-webkit-progress-value {
+    border-radius: 7px;
+    background: radial-gradient(7px at 98%,white,white 6px,transparent),linear-gradient(to right, var(--primary-gradient-clr));
 }
 
-.read-the-docs {
-  color: #888;
+/*Mobile style*/
+.App {
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: 'Raleway', sans-serif;
+    font-size: var(--primary-fs);
+    font-weight: var(--secondary-fw);
+    color: var(--neutral-pale-blue);
+    display: grid;
+    place-items: center;
+    background:  var(--neutral-very-dark-blue) url("./images/bg-desktop.png") no-repeat bottom /contain;
 }
+
+.App .container {
+    width: min(90%, 70rem);
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2rem;
+    z-index: 99;
+}
+
+.InteractPanel {
+    padding: 2rem;
+    background-color: var(--neutral-dark-blue);
+    width: 100%;
+    max-width: 20rem;
+    border-radius: 10px 5rem 10px 10px;
+}
+
+.InteractPanel .row {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.InteractPanel .row > *{
+    padding: .75rem;
+    border-radius: 10px;
+    background-color: var(--neutral-very-dark-blue);
+}
+
+.DataPanel {
+    width: 100%;
+    max-width: 40rem;
+    background-color: var(--neutral-dark-blue);
+    padding: 2rem;
+    border-radius: 10px;
+    position: relative;
+}
+
+.DataPanel .show-min-max {
+    display: flex;
+    justify-content: space-between;
+    margin-top: .5em;
+}
+
+.DataPanel .cap-left {
+    position: absolute;
+    top: -20%;
+    right: 5%;
+    padding: .5rem 1rem;
+    background-color: white;
+    border-radius: 10px;
+    color: var(--neutral-very-dark-blue);
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.DataPanel .cap-left::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    border-top: 25px solid transparent;
+    border-right: 25px solid white;
+    border-bottom: 25px solid transparent;
+}
+
+.DataPanel .cap-left span {
+    color: var(--neutral-grayish-blue);
+    font-size: var(--primary-fs);
+    margin-left: .5em;
+}
+
+@media screen and (max-width:800px) {
+    .App {
+        background-image: url("./images/bg-mobile.png");
+        background-size: cover;
+    }
+
+    .App .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .DataPanel .cap-left::before {
+        display: none;
+    }
+
+    .DataPanel .cap-left {
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+  
